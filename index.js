@@ -26,8 +26,15 @@ const animals = [
  * getTotalCount(animals); //> 28
  * getTotalCount([]); //> 0 // returns 0 if the input array is empty
  */
-function getTotalCount(animals) {}
 
+function getTotalCount(animals) {
+  let total = 0; //step 1
+  for(let animal of animals){ //step 2
+    total += animal.count; //step 3
+  }
+return total;
+
+}
 /**
  * FUNCTION DESCRIPTION
  * ------------------
@@ -40,7 +47,13 @@ function getTotalCount(animals) {}
  * getAllKinds(animals); //> ["Pig", "Cow", "Chicken", "Horse", "Dog", "Cat"]
  * getAllKinds([]); //> [] // returns empty array if input array is empty
  */
-function getAllKinds(animals) {}
+function getAllKinds(animals) {
+  let emptyArr = []; //step 1
+  for(let i=0;i<animals.length;i++){//step 2
+    emptyArr.push(animals[i].kind) //step 3
+  }
+  return emptyArr;
+}
 
 /**
  * FUNCTION DESCRIPTION
@@ -59,7 +72,16 @@ function getAllKinds(animals) {}
   ];
  * filterByCountMinimum([], 3); //> [] // returns empty array if input array is empty
  */
-function filterByCountMinimum(animals, minimum) {}
+function filterByCountMinimum(animals, minimum) {
+  let emptArr = []; //initialized empty array
+  for(let i = 0;i<animals.length;i++){ //for loop iterating through our animal array
+    if(animals[i].count >= minimum){ //conditional asking if the count key in our array is greater then the minimum count provided
+      emptArr.push(animals[i]) // push our count in our empty Arr
+    }
+  }
+  return emptArr;
+}
+
 
 /**
  * FUNCTION DESCRIPTION
@@ -73,7 +95,19 @@ function filterByCountMinimum(animals, minimum) {}
  * getMostCommonAnimal(animals); //> { kind: "Chicken", count: 11 }
  * getMostCommonAnimal([]); //> null // returns null if the input is empty
  */
-function getMostCommonAnimal(animals) {}
+function getMostCommonAnimal(animals) {
+  let highestCount = animals[0] //step1
+  if (animals.length === 0) {
+    return null
+  }
+  for (let animal of animals) { //step 2
+    if (animal.count > highestCount.count) {
+      highestCount = animal
+    }
+  }
+    return highestCount
+}  
+
 
 // Do not change anything below this line.
 module.exports = {
